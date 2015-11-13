@@ -1,0 +1,34 @@
+{% extends 'Blog/base.html' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block login %}
+    <div class="containerpfluid">
+        <div class="row"><br>
+            <div class="col-xs-1 col-sm-1"></div>
+            <div class="col-xs-10 col-sm-10">
+                <form action="/auth/register/" method="post">
+                    {% csrf_token %}
+
+                    {% for element_form in form %}
+                        <div class="row">
+                            <div class="col col-xs-2 col-sm-2" style="width: 155px; margin-bottom: 17px;">
+                                {{ element_form.label }}
+                            </div>
+                            <div class="col col-xs-sm-8 col-sm-8" style="margin-bottom: 17px;">
+                                {{ element_form }}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="row1" >
+                        <input class="button" type="submit" value="Sign up">
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-1 col-sm-1"></div>
+        </div>
+    </div>
+{% endblock %}

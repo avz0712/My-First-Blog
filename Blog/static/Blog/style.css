@@ -1,10 +1,26 @@
-.main-content {
-    margin-top: 80px;
+
+.navbar-nav {
+    border: 0px;
 }
+
+
+.main-content {
+    background-color: rgba(0, 0, 4, 0.4);
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+
+body {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
 
 h4 {
     margin-top: 50px;
 }
+
 
 .footer-signature {
     position: fixed;
@@ -14,3 +30,4 @@ h4 {
     background-color: #00af7d;
     text-align: center;
 }
+

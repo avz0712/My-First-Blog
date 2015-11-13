@@ -1,10 +1,77 @@
 {% extends 'Blog/base.html' %}
+{% load staticfiles %}
+
 
 {%  block title %}
-    {{ article.title }}
+    {{ article.article_title }}
 {% endblock %}
 
 {% block content %}
-    <h1>{{ article.article_title }}</h1>
-    <pre>{{ article.article_text }}</pre>
+    <div class='container-fluid'>
+        <div class='row' style='margin-top: 10px; margin-bottom: 17px;'>
+            <div class='col col-xs-1 col-sm-1'></div>
+            <div class='col col-xs-10 col-sm-10'>
+                <h1>{{ article.article_title }}</h1>
+            </div>
+            <div class='col-xs-1 col-sm-1'></div>
+        </div>
+
+        <div class='row'>
+            <div class='col col-xs-1 col-sm-1'></div>
+            <div class='col col-xs-10 col-sm-10'>
+                <pre class="text-justify">{{ article.article_text }}</pre>
+            </div>
+            <div class='col-xs-1 col-sm-1'></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-1 col-sm-1"></div>
+            <div class="col-xs-10 col-sm-10">
+                <p>
+                    <a href="/articles/add_like/{{ article.id}}/">
+                        <img src="{% static 'Blog/img_Like.png' %}" title="Like this" width="25px" height="24px">: {{ article.article_likes }}
+                    </a>
+                </p>
+                <hr>
+            </div>
+            <div class="col-xs-1 col-sm-1"></div>
+        </div>
+
+        <div class='row'>
+            <div class='col col-xs-1 col-sm-1'></div>
+            <div class='col col-xs-10 col-sm-10'>
+                <h6 style='font-style: oblique'>Comments:</h6>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col col-xs-1 col-sm-1'></div>
+            <div class='col col-xs-10 col-sm-10'>
+                {% for comment in comments %}
+                    <pre style='font-style: italic'>{{ comment.comments_text }}</pre>
+                    <p>{{ comment.comments_from }} &nbsp;&nbsp; {{ comment.comments_date }}</p>
+                {% endfor %}
+            </div>
+            <div class='col col-xs-1 col-sm-1'></div>
+        </div>
+
+        <div class='row'>
+            <div class='col col-xs-1 col-sm-1'></div>
+            {% if username %}
+                <div class='col col-xs-4 col-sm-4' style='margin-top: 20px;'>
+                    <form action="/articles/add_comment/{{ article.id }}/" method="post">
+                        {% csrf_token %}
+                        {{ comment_form }}
+                        <div class='row'  align='right' style='margin-top: 7px;'>
+                            <div class='col col-xs-11 col-sm-11'>
+                                <input type='submit' class='button' value='Add comment'>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            {% endif %}
+            <div class='col col-xs-1 col-sm-1'></div>
+        </div>
+        <div class='row'><br></div>
+    </div>
 {% endblock %}

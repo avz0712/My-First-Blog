@@ -1,4 +1,5 @@
 {% extends 'Blog/base.html' %}
+{% load staticfiles %}
 
 {% block title %}
     About
@@ -6,15 +7,31 @@
 
 {% block content %}
     <h1>About author</h1>
-    <h2>Andrew Zaharovskyi</h2>
-    <h3>Python/Django Developer</h3>
-    <h4>Twenty four years old. Lives in Ukraine.</h4>
-    <br>
-    <h5><font color="lightskyblue">Blog — my simple web-application</font></h5>
+    <div class='container-fluid'>
+        <div class='row2' align='left'>
+            <div class='col-xs-4 col-sm-4' align='center'>
+                <h2>Andrew Zaharovskyi</h2>
+                <h3>Python/Django Developer</h3>
+                <img src="{% static 'Blog/author.jpg' %}" width="230px" height="230px">
+            </div>
 
-    <p><span style="background-color: #7fb37c">
-        <font color="black">I created this project in 22th September and this is my first application in Python/Django. For this job, I spent one day. For day I learned foundations to work in Django, learned pattern MVC and his "analog" MTV in philosophy Django. I remembered how to work with HTML and CSS.I also learned to use finished templates in my work. I also learned to use the templates for work, do the insertions of styles and scripts of JS. I figured out how to do the template inheritance and how to work with the static files.</font>
-    </span></p>
-    
-    <img src="">
+            <div class='col-xs-3 col-sm-3'>
+                <h5 class='text-info'>Contact information</h5>
+                <ul class='text-success'>
+                    <li>E-mail: <a href="mailto:avz0712@gmail.com">avz0712@gmail.com</a><br></li>
+                    <li>Skype:  <a href="skype:avz0712?call">avz0712</a><br></li>
+                    <li>Mobile: <a href="skype:+380990279149?call">+380990279149</a><br></li>
+                </ul>
+            </div>
+
+            <div class='col-xs-4 col-sm-4'>
+                <p class='text-justify'>
+                    In a blog materials are published on a theme interesting possibilities of Python, work at Django and other frameworks.
+                    Also information is here published about robotics, application of Python in robotics and application in network technologies.
+                    Will be considering features of network programming.
+                </p>
+            </div>
+        </div>
+        <div class='row'><br></div>
+    </div>
 {% endblock %}

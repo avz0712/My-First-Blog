@@ -1,0 +1,41 @@
+{% extends 'Blog/base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block login %}
+    <div class="row">
+        <div class="col col-xs-3 col-sm-3" style="margin-top: 20px;">
+            <form action="/auth/login/" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col col-xs-5 col-sm-5" style="width: 106px;">
+                        <label for="username">User name:</label>
+                    </div>
+                    <div class="col col-xs-sm-5 col-sm-5">
+                        <input type="text" id="username" name="username">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-xs-5 col-sm-5" style="width: 106px;">
+                        <label for="password">Password:</label>
+                    </div>
+                    <div class="col col-xs-sm-5 col-sm-5">
+                        <input type="password" id="password" name="password">
+                    </div>
+                </div>
+
+                {% if login_error %}
+                    <label class="error">{{ login_error }}</label>
+                {% endif %}
+
+                <div class="row1" >
+                    <input class="button" type="submit" value="Log In" style="margin-top: 7px;">
+                    <a class="label label-primary" href="/auth/register/">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

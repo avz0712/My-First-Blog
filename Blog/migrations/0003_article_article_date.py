@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Blog', '0001_initial'),
+        ('Blog', '0002_auto_20151113_0859'),
     ]
 
     operations = [
-        migrations.RenameField(
+        migrations.AddField(
             model_name='article',
-            old_name='article_tsxt',
-            new_name='article_text',
+            name='article_date',
+            field=models.DateTimeField(null=True, auto_now_add=True),
         ),
     ]

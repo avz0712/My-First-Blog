@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+
 from django.contrib import admin
 from Blog.models import Article, Comments
 
+__author__ = 'Anrew Zaharovskyi'
 
 # Register your models here.
 
@@ -21,8 +23,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
     inlines = [ArticleInLine]
 
-    list_filter = ['article_title',
-                   'article_date'
+    list_filter = ['article_title'
                    ]
 
 
